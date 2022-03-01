@@ -8,8 +8,8 @@ return <DayListItem
   key={day.id}
   name={day.name}
   spots={day.spots}
-  selected={day.name === props.day}
-  setDay={day.setDay} 
+  selected={day.name === props.value}
+  setDay={day.onChange} 
   />
 }
 )
