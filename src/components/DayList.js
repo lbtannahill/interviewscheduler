@@ -9,7 +9,7 @@ return <DayListItem
   name={day.name}
   spots={day.spots}
   selected={day.name === props.value}
-  setDay={day.onChange} 
+  setDay={props.onChange} 
   />
 }
 )
