@@ -3,30 +3,31 @@ import Button from "components/Button";
 import React, { useState } from 'react';
 
 export default function Form(props) {
+
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
   
-  const reset = () => {
+  function reset() {
     setStudent("");
-    setInterviewer("");
-  };
+    setError("");
+    setInterviewer(null);
+  }
 
-  const cancel = () => {
+  function cancel() {
     reset();
     props.onCancel();
   }
 
-  const validate = () => {
-    if (student === "") {
+  function validate() {
+    if (!student) {
       setError("Student name cannot be blank");
       return;
     }
     if (!interviewer) {
-      setError("Must select an interviewer");
+      setError("Please select an interviewer");
       return;
     }
-  
     setError("");
     props.onSave(student, interviewer);
   }
